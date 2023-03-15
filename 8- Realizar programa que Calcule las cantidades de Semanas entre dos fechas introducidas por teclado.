@@ -1,0 +1,17 @@
+import datetime
+
+fecha1 = input("Introduce la primera fecha en formato dd/mm/yyyy: ")
+fecha2 = input("Introduce la segunda fecha en formato dd/mm/yyyy: ")
+
+# Convertimos las cadenas de texto en objetos datetime
+fecha1 = datetime.datetime.strptime(fecha1, "%d/%m/%Y")
+fecha2 = datetime.datetime.strptime(fecha2, "%d/%m/%Y")
+
+# Calculamos la diferencia entre las dos fechas
+diferencia = fecha2 - fecha1
+
+# Calculamos el número de semanas redondeando hacia abajo
+num_semanas = diferencia.days // 7
+
+# Imprimimos el resultado
+print("Entre las fechas", fecha1.date(), "y", fecha2.date(), "hay", num_semanas, "semanas.")
