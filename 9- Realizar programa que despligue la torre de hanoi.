@@ -1,0 +1,32 @@
+using System;
+
+namespace TorreDeHanoi
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Ingrese el número de discos:");
+            int numDiscos = Convert.ToInt32(Console.ReadLine());
+
+            // Llamamos a la función recursiva que resuelve el problema de la Torre de Hanoi
+            Hanoi(numDiscos, "A", "B", "C");
+
+            Console.ReadKey();
+        }
+
+        static void Hanoi(int n, string origen, string auxiliar, string destino)
+        {
+            if (n == 1)
+            {
+                Console.WriteLine("Mover disco 1 de {0} a {1}", origen, destino);
+            }
+            else
+            {
+                Hanoi(n - 1, origen, destino, auxiliar);
+                Console.WriteLine("Mover disco {0} de {1} a {2}", n, origen, destino);
+                Hanoi(n - 1, auxiliar, origen, destino);
+            }
+        }
+    }
+}
