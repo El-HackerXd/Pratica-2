@@ -1,0 +1,31 @@
+using System;
+
+class Program {
+    static int MCD(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+
+        return MCD(b, a % b);
+    }
+
+    static int MCM(int a, int b) {
+        return (a * b) / MCD(a, b);
+    }
+
+    static void Main(string[] args) {
+        Console.Write("Ingrese el primer número: ");
+        int num1 = int.Parse(Console.ReadLine());
+
+        Console.Write("Ingrese el segundo número: ");
+        int num2 = int.Parse(Console.ReadLine());
+
+        int mcd = MCD(num1, num2);
+        int mcm = MCM(num1, num2);
+
+        Console.WriteLine("El MCD de " + num1 + " y " + num2 + " es " + mcd);
+        Console.WriteLine("El MCM de " + num1 + " y " + num2 + " es " + mcm);
+
+        Console.ReadLine();
+    }
+}
