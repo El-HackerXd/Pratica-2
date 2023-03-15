@@ -1,0 +1,21 @@
+using System;
+
+public class Program {
+    public static void Main() {
+        Console.WriteLine("Ingresa una cadena de texto:");
+        string input = Console.ReadLine();
+
+        string[] words = input.Split(' ');
+        int numWords = words.Length;
+
+        string[] reversedWords = new string[numWords];
+        for (int i = 0; i < numWords; i++) {
+            char[] letters = words[i].ToCharArray();
+            Array.Reverse(letters);
+            reversedWords[i] = new string(letters);
+        }
+
+        string output = string.Join(" ", reversedWords);
+        Console.WriteLine(output);
+    }
+}
