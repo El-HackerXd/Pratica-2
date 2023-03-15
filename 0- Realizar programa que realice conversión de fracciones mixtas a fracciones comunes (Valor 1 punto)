@@ -1,0 +1,25 @@
+using System;
+
+class Program {
+    static void Main(string[] args) {
+        Console.Write("Ingrese la fracción mixta en el formato 'a b/c': ");
+        string fraccionMixta = Console.ReadLine();
+
+        // Separar la parte entera y la fracción
+        string[] partes = fraccionMixta.Split(' ');
+        int parteEntera = int.Parse(partes[0]);
+        string fraccion = partes[1];
+
+        // Separar el numerador y el denominador de la fracción
+        string[] fraccionPartes = fraccion.Split('/');
+        int numerador = int.Parse(fraccionPartes[0]);
+        int denominador = int.Parse(fraccionPartes[1]);
+
+        // Calcular el numerador total
+        int numeradorTotal = parteEntera * denominador + numerador;
+
+        // Mostrar la fracción común
+        Console.WriteLine("La fracción común es: " + numeradorTotal + "/" + denominador);
+        Console.ReadLine();
+    }
+}
