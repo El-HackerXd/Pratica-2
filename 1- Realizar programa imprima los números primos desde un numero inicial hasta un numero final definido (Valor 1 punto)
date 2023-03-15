@@ -1,0 +1,35 @@
+using System;
+
+class Program {
+    static bool esPrimo(int numero) {
+        if (numero <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i <= Math.Sqrt(numero); i++) {
+            if (numero % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    static void Main(string[] args) {
+        Console.Write("Ingrese el número inicial: ");
+        int numeroInicial = int.Parse(Console.ReadLine());
+
+        Console.Write("Ingrese el número final: ");
+        int numeroFinal = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Los números primos entre " + numeroInicial + " y " + numeroFinal + " son:");
+
+        for (int i = numeroInicial; i <= numeroFinal; i++) {
+            if (esPrimo(i)) {
+                Console.WriteLine(i);
+            }
+        }
+
+        Console.ReadLine();
+    }
+}
