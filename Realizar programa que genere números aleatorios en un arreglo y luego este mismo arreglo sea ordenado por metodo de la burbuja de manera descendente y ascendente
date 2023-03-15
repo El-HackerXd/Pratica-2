@@ -1,0 +1,82 @@
+using System;
+
+namespace OrdenamientoBurbuja
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Ingrese el tamaño del arreglo:");
+            int tamano = Convert.ToInt32(Console.ReadLine());
+
+            // Creamos el arreglo y lo llenamos con números aleatorios
+            int[] arreglo = new int[tamano];
+            Random random = new Random();
+            for (int i = 0; i < tamano; i++)
+            {
+                arreglo[i] = random.Next(100); // Genera un número aleatorio entre 0 y 99
+            }
+
+            // Imprimimos el arreglo desordenado
+            Console.WriteLine("\nArreglo desordenado:");
+            ImprimirArreglo(arreglo);
+
+            // Ordenamos el arreglo de manera ascendente utilizando el método de la burbuja
+            OrdenarBurbujaAscendente(arreglo);
+
+            // Imprimimos el arreglo ordenado de manera ascendente
+            Console.WriteLine("\nArreglo ordenado de manera ascendente:");
+            ImprimirArreglo(arreglo);
+
+            // Ordenamos el arreglo de manera descendente utilizando el método de la burbuja
+            OrdenarBurbujaDescendente(arreglo);
+
+            // Imprimimos el arreglo ordenado de manera descendente
+            Console.WriteLine("\nArreglo ordenado de manera descendente:");
+            ImprimirArreglo(arreglo);
+
+            Console.ReadKey();
+        }
+
+        static void ImprimirArreglo(int[] arreglo)
+        {
+            for (int i = 0; i < arreglo.Length; i++)
+            {
+                Console.Write(arreglo[i] + " ");
+            }
+            Console.WriteLine();
+        }
+
+        static void OrdenarBurbujaAscendente(int[] arreglo)
+        {
+            for (int i = 0; i < arreglo.Length - 1; i++)
+            {
+                for (int j = 0; j < arreglo.Length - i - 1; j++)
+                {
+                    if (arreglo[j] > arreglo[j + 1])
+                    {
+                        int temp = arreglo[j];
+                        arreglo[j] = arreglo[j + 1];
+                        arreglo[j + 1] = temp;
+                    }
+                }
+            }
+        }
+
+        static void OrdenarBurbujaDescendente(int[] arreglo)
+        {
+            for (int i = 0; i < arreglo.Length - 1; i++)
+            {
+                for (int j = 0; j < arreglo.Length - i - 1; j++)
+                {
+                    if (arreglo[j] < arreglo[j + 1])
+                    {
+                        int temp = arreglo[j];
+                        arreglo[j] = arreglo[j + 1];
+                        arreglo[j + 1] = temp;
+                    }
+                }
+            }
+        }
+    }
+}
