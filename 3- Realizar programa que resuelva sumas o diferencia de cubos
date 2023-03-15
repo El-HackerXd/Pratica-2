@@ -1,0 +1,25 @@
+using System;
+
+public class Program {
+    public static void Main() {
+        Console.WriteLine("Ingresa una expresión de la forma 'a^3 + b^3' o 'a^3 - b^3':");
+        string expression = Console.ReadLine();
+
+        string[] parts = expression.Split(' ');
+        int a = int.Parse(parts[0].Substring(0, parts[0].Length - 2));
+        int b = int.Parse(parts[2].Substring(0, parts[2].Length - 2));
+        char op = parts[1][0];
+
+        int result = 0;
+        if (op == '+') {
+            result = (int)Math.Pow(a, 3) + (int)Math.Pow(b, 3);
+        } else if (op == '-') {
+            result = (int)Math.Pow(a, 3) - (int)Math.Pow(b, 3);
+        } else {
+            Console.WriteLine("Expresión inválida.");
+            return;
+        }
+
+        Console.WriteLine($"El resultado es: {result}");
+    }
+}
