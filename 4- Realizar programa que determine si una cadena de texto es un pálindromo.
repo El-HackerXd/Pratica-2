@@ -1,0 +1,23 @@
+using System;
+
+public class Program {
+    public static void Main() {
+        Console.WriteLine("Ingresa una cadena de texto:");
+        string input = Console.ReadLine();
+
+        bool isPalindrome = true;
+        int length = input.Length;
+        for (int i = 0; i < length / 2; i++) {
+            if (input[i] != input[length - 1 - i]) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if (isPalindrome) {
+            Console.WriteLine("La cadena es un palíndromo.");
+        } else {
+            Console.WriteLine("La cadena no es un palíndromo.");
+        }
+    }
+}
